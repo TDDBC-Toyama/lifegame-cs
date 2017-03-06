@@ -18,5 +18,17 @@ class MainClass {
       }
       Console.WriteLine(line);
     }
+
+    for (int times = 0; times < 3; times++) {
+      Console.WriteLine(times + "==========");
+
+      for (int i = 0; i < 5; i++) {
+        String line = "";
+        for (int j = 0; j < 5; j++) {
+          line = line + b[i][j];
+        }
+        Console.WriteLine(line);
+      }
+    }
   }
 }
