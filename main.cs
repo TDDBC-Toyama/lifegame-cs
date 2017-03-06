@@ -28,9 +28,27 @@ class MainClass {
       for (int i = 0; i < 5; i++) {
         bb[i] = new String[5];
         for (int j = 0; j < 5; j++) {
+          if (b[i][j] == "□") {
+            // 誕生の場合
+            int count = 0;
+            if (i > 0 && j > 0 && b[i-1][j-1] == "■") count += 1;
+            if (i > 0 && b[i-1][j] == "■") count += 1;
+            if (i > 0 && j < 4 && b[i-1][j+1] == "■") count += 1;
 
-          bb[i][j] = b[i][j];
+            if (j > 0 && b[i][j-1] == "■") count += 1;
+            if (b[i][j] == "■") count += 1;
+            if (j < 4 && b[i][j+1] == "■") count += 1;
 
+            if (i < 4 && j > 0 && b[i+1][j-1] == "■") count += 1;
+            if (i < 4 && b[i+1][j] == "■") count += 1;
+            if (i < 4 && j < 4 && b[i+1][j+1] == "■") count += 1;
+
+            if (count >= 3) {
+              bb[i][j] = "■";
+            } else {
+              bb[i][j] = "□";
+            }
+          }
           if (b[i][j] == "■") {
             // 生存・過疎・過密の場合
             int count = 0;
